@@ -1,19 +1,32 @@
-import {Component, Directive, HostBinding} from '@angular/core';
-
-
-@Directive({
-    selector: 'h1'
-})
-export class FirstDirective {
-  @HostBinding() innerText = 'I am a directive';
-
-}
+import {Component} from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  template: '<h1>myApp</h1>',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    template: `
+        <ng-template #foo let-whatever="message">
+            <h1>{{whatever}}</h1>
+        </ng-template>
+
+        <div
+                [ngTemplateOutlet]="foo"
+                [ngTemplateOutletContext]="one"
+        >
+        </div>
+        <div
+                [ngTemplateOutlet]="foo"
+                [ngTemplateOutletContext]="two"
+        >
+        </div>
+        <div
+                [ngTemplateOutlet]="foo"
+                [ngTemplateOutletContext]="three"
+        >
+        </div>
+    `
 })
 export class AppComponent {
-  title = 'app';
+    one = {message: 'Hello One'};
+    two = {message: 'Hello Two'};
+    three = {message: 'Hello Three'};
+
 }
