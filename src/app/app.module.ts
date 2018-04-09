@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {AppComponent, TrackDirective, TrackingService, OnlineDirective, OnlineService} from './app.component';
+import {AppComponent, TrackDirective, TrackingService} from './app.component';
 
 @NgModule({
     imports: [
@@ -8,12 +8,10 @@ import {AppComponent, TrackDirective, TrackingService, OnlineDirective, OnlineSe
     ],
     declarations: [
         AppComponent,
-        TrackDirective,
-        OnlineDirective
+        TrackDirective
     ],
     providers: [
-        TrackingService,
-        OnlineService
+        TrackingService
     ],
     bootstrap: [AppComponent]
 
