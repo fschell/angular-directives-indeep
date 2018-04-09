@@ -26,7 +26,7 @@ export class ThreeDirective {
 }
 
 @Component({
-    selector: 'app',
+    selector: 'app-root',
     template: `
         <h1 *three="let message from messages">{{message}}</h1>
     `
