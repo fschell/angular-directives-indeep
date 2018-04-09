@@ -2,18 +2,21 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 
-import {AppComponent, FirstDirective} from './app.component';
+import {AppComponent, SurroundDirective, TemplateService, TemplateStorage, ThreeDirective} from './app.component';
 
 
 @NgModule({
     declarations: [
         AppComponent,
-        FirstDirective
+        TemplateStorage,
+        SurroundDirective
     ],
     imports: [
         BrowserModule
     ],
-    providers: [],
+    providers: [
+        TemplateService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {
