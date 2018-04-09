@@ -1,19 +1,37 @@
-import {Component, Directive, HostBinding} from '@angular/core';
-
+import {AfterContentInit, Component, Directive, ViewChild, ViewContainerRef} from '@angular/core';
 
 @Directive({
-    selector: 'h1'
+    selector: '[first]'
 })
 export class FirstDirective {
-  @HostBinding() innerText = 'I am a directive';
 
 }
 
 @Component({
-  selector: 'app-root',
-  template: '<h1>myApp</h1>',
-  styleUrls: ['./app.component.css']
+    selector: 'basic',
+    template: `
+        <ng-template #foo>
+            This is content inside a template
+        </ng-template>
+    `
 })
-export class AppComponent {
-  title = 'app';
+export class BasicComponent implements AfterContentInit {
+    @ViewChild('foo') template;
+
+    constructor(private view: ViewContainerRef) {
+    }
+
+    ngAfterContentInit() {
+        this.view.createEmbeddedView(this.template);
+        this.view.createEmbeddedView(this.template);
+        this.view.createEmbeddedView(this.template);
+    }
 }
+
+@Component({
+    selector: 'app-root',
+    template: `
+        <basic></basic>
+    `
+})
+export class AppComponent {}
