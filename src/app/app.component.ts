@@ -31,7 +31,7 @@ export class TemplateStorage implements AfterViewInit {
 export class SurroundDirective implements AfterViewInit{
     constructor(private templateService: TemplateService,
                 private view: ViewContainerRef,
-                private template: TemplateRef) {
+                private template: TemplateRef<any>) {
     }
     ngAfterViewInit(){
         this.view.createEmbeddedView(this.templateService.templates.get('header'));
