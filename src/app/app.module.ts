@@ -2,18 +2,18 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 
-import {AppComponent, FirstDirective} from './app.component';
+import {AppComponent, TrackDirective, TrackingService} from './app.component';
 
 
 @NgModule({
     declarations: [
         AppComponent,
-        FirstDirective
+        TrackDirective
     ],
     imports: [
         BrowserModule
     ],
-    providers: [],
+    providers: [TrackingService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
